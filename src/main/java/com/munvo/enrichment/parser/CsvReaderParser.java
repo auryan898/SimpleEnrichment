@@ -10,7 +10,7 @@ public class CsvReaderParser implements FileReaderParser {
         
         // There may be an extra comma in a line, 
         // but there should at least be 3 items to access
-        if (attr.length >= 3) {
+        if (attr.length < 3) {
             return null;
         }
         int id = Integer.parseInt(attr[0]);
