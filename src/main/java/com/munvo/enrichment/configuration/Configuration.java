@@ -8,12 +8,21 @@ public class Configuration {
     private String studentName;
     private String type;
     private String fileName;
+    
+    private static Configuration singleConfiguration = null;
 
-    public Configuration() {
+    public static Configuration getInstance() {
+        if(singleConfiguration == null) {
+            singleConfiguration = new Configuration();
+        }
+        return singleConfiguration;
+    }
+    
+    private Configuration() {
         Config config = ConfigFactory.load();
         this.studentName = config.getString("name");
-        this.studentName = config.getString("type");
-        this.studentName = config.getString("fileName");
+        this.type = config.getString("type");
+        this.fileName= config.getString("fileName");
     }
 
     public String getStudentName() {

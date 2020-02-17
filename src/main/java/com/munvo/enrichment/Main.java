@@ -11,6 +11,7 @@ import com.munvo.enrichment.input.InputSource;
 import com.munvo.enrichment.model.Call;
 import com.munvo.enrichment.model.EnrichedCall;
 import com.munvo.enrichment.parser.FileReaderParser;
+import com.munvo.enrichment.parser.FileReaderParserFactory;
 
 public class Main {
 	
@@ -23,10 +24,10 @@ public class Main {
     
     public static void main(String[] args) {
         // Get an instance of Configuration using Singleton pattern
-        Configuration configuration = null;
+        Configuration configuration = Configuration.getInstance();
 
         // Instantiate an input stream converter
-        FileReaderParser fileReaderParser = null;
+        FileReaderParser fileReaderParser = FileReaderParserFactory.getParser(configuration.getType());
 
         // Inject the file reader parser
 		try {
