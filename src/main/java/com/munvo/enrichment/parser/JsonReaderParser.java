@@ -19,10 +19,12 @@ public class JsonReaderParser implements FileReaderParser{
         Matcher nameMatch = namePattern.matcher(subLine);
         Matcher phoneMatch = phonePattern.matcher(subLine);
         
+        // Try to find the desired values
         if ( !(idMatch.find() && nameMatch.find() && phoneMatch.find()) ) {
             return null;
         }
         
+        // Get the matched values and return the new object
         int id = Integer.parseInt(idMatch.group(1));
         String name = nameMatch.group(1);
         String phone = phoneMatch.group(1);

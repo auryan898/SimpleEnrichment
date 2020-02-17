@@ -3,11 +3,11 @@ package com.munvo.enrichment.parser;
 public class FileReaderParserFactory {
     
     /**
-     * Instantiates a FileReaderParser based on value of "type" given 
-     * in the Configuration class.
+     * Instantiates a FileReaderParser based on the value of "type" (case insensitive).  
+     * Gives a CsvReaderParser if given "csv", and a JsonReaderParser is given "json".
      * 
      * @param type either "JSON" or "CSV"
-     * @return a FileReaderParser instance
+     * @return a FileReaderParser instance, null if type is not "json" or "csv"
      */
     public static FileReaderParser getParser(String type) {
         if (type == null) {
